@@ -3,7 +3,7 @@ import time
 from core.component import RuntimeCache
 
 
-class MyTestCase(unittest.TestCase):
+class CacheTestCase(unittest.TestCase):
     def test_success(self):
         cache = RuntimeCache()
         cache.set('test', 2)
