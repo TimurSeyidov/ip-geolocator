@@ -2,7 +2,7 @@ from ipaddress import ip_address, IPv4Address, IPv6Address
 
 
 class Ip:
-    __value: IPv4Address | IPv6Address | None = None
+    __value: IPv4Address | IPv6Address | None
 
     def __init__(self, ip: str):
         ip = ip.strip()
