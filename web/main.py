@@ -2,13 +2,13 @@ import os
 from flask import Flask, render_template, request
 from core.base import Ip
 from core import BaseApplication
-from core.component import RuntimeCache
+from core.component import FileCache
 
 if __name__ == '__main__':
     app = BaseApplication(
-        env_file='../.env',
-        cache=RuntimeCache()
+        env_file='../.env'
     )
+    app.cache = FileCache(os.path.abspath(app.get_config('cache_path', '../cache')))
     webapp = Flask(
         __name__,
         template_folder=os.path.abspath('./template'),
