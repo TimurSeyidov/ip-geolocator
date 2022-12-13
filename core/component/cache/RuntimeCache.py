@@ -1,7 +1,6 @@
-from typing import Dict
+from typing import Dict, List
 from core.interface import CacheInterface
 import datetime as dt
-import time
 
 
 class RuntimeCache(CacheInterface):
@@ -24,7 +23,7 @@ class RuntimeCache(CacheInterface):
             return None
         return value.get('value')
 
-    def set(self, key: str, value: str | int | float = None, ttl: int = 0):
+    def set(self, key: str, value: str | int | float | List | Dict = None, ttl: int = 0):
         self.__values[key] = {
             'ttl': ttl,
             'time': dt.datetime.now(),

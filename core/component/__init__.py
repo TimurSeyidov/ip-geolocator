@@ -1,4 +1,4 @@
 from .HttpClient import HttpClient
-from .cache import RuntimeCache
+from .cache import RuntimeCache, FileCache
 
-__all__ = ['HttpClient', 'RuntimeCache']
+__all__ = ['HttpClient', 'RuntimeCache', 'FileCache']

@@ -1,3 +1,4 @@
+from typing import List, Dict
 from abc import ABCMeta, abstractmethod
 
 
@@ -9,5 +10,5 @@ class Cache:
         pass
 
     @abstractmethod
-    def set(self, key: str, value: str | int | float = None, ttl: int = 0):
+    def set(self, key: str, value: str | int | float | List | Dict = None, ttl: int = 0):
         pass

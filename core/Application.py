@@ -45,6 +45,14 @@ class Application(LocatorInterface):
             self.__cache.set(ip.value, result.dict, 120)
         return result
 
+    @property
+    def cache(self) -> CacheInterface | None:
+        return self.__cache
+
+    @cache.setter
+    def cache(self, cache: CacheInterface):
+        self.__cache = cache
+
     @staticmethod
     def get_config(key: str, default: Any = None) -> Any:
         return os.getenv(key, default)
