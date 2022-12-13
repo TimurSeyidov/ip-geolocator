@@ -30,9 +30,6 @@ if __name__ == '__main__':
                 location = find.dict
         yandex_js_api_key = app.get_config('yandex_js_api_key')
         return render_template("index.html", ip=args.get('ip', ''), yandex_js_api_key=yandex_js_api_key, **location)
-
-
-
     webapp.run(
         host=app.get_config('web_host', '0.0.0.0'),
         port=app.get_config('web_port', 4000)
