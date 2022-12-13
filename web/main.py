@@ -33,6 +33,9 @@ if __name__ == '__main__':
 
 
 
-    webapp.run('127.0.0.1', 3001)
+    webapp.run(
+        host=app.get_config('web_host', '0.0.0.0'),
+        port=app.get_config('web_port', 4000)
+    )
 
 
