@@ -113,3 +113,11 @@ button:hover {
     padding: 2px;
     width: 100%;
 }
+
+.code {
+    font-size: 20rem;
+}
+.code-message {
+    font-size: 2rem;
+    text-align: center;
+}

@@ -15,8 +15,11 @@ if __name__ == '__main__':
         static_folder=os.path.abspath('./template/static')
     )
 
+    @webapp.errorhandler(404)
+    def page_not_found(e):
+        return render_template('error.html'), 404
+
     @webapp.get('/')
-    @webapp.get('/<ip>')
     def index():
         location = dict()
         args = request.args
@@ -27,6 +30,8 @@ if __name__ == '__main__':
                 location = find.dict
         yandex_js_api_key = app.get_config('yandex_js_api_key')
         return render_template("index.html", ip=args.get('ip', ''), yandex_js_api_key=yandex_js_api_key, **location)
+
+
 
     webapp.run('127.0.0.1', 3001)
 
