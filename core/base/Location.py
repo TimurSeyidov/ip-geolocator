@@ -1,4 +1,4 @@
-from typing import Tuple
+from typing import Tuple, Dict
 
 
 class Location:
@@ -8,6 +8,8 @@ class Location:
     __lat: float = None
     __lng: float = None
     __zip: str = None
+
+    __fields = ['country', 'region', 'city', 'lat', 'lng', 'zip']
 
     def __init__(self,
                  country: str,
@@ -62,7 +64,7 @@ class Location:
 
     def __str__(self):
         result = list()
-        for key in ['country', 'region', 'city', 'lat', 'lng', 'zip']:
+        for key in self.__fields:
             value = getattr(self, key)
             if value:
                 result.append(f'{key.capitalize()}: {value}')
@@ -70,11 +72,17 @@ class Location:
 
     @property
     def weight(self) -> Tuple[int, int]:
-        fields = ['country', 'region', 'city', 'lat', 'lng', 'zip']
-        total = len(fields)
+        total = len(self.__fields)
         filled = 0
-        for key in ['country', 'region', 'city', 'lat', 'lng', 'zip']:
+        for key in self.__fields:
             value = getattr(self, key)
             if value:
                 filled += 1
         return filled, total
+
+    @property
+    def dict(self) -> Dict:
+        result = dict()
+        for key in self.__fields:
+            result[key] = getattr(self, key)
+        return result

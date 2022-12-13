@@ -1,4 +1,5 @@
 import os
+from typing import Any
 from dotenv import load_dotenv
 from core.interface import LocatorInterface, CacheInterface
 from core.component import HttpClient
@@ -27,7 +28,24 @@ class Application(LocatorInterface):
             self.__locator = ChainLocator(*locators)
 
     def locate(self, ip: Ip) -> Location | None:
+        if self.__cache:
+            location = self.__cache.get(ip.value)
+            if location:
+                return Location(
+                    country=location.get('country'),
+                    region=location.get('region'),
+                    zip=location.get('zip'),
+                    city=location.get('city'),
+                    coord=(location.get('lat'), location.get('lng'))
+                )
         if not self.__locator:
             return None
-        return self.__locator.locate(ip)
+        result = self.__locator.locate(ip)
+        if self.__cache and result:
+            self.__cache.set(ip.value, result.dict, 120)
+        return result
+
+    @staticmethod
+    def get_config(key: str, default: Any = None) -> Any:
+        return os.getenv(key, default)
 
