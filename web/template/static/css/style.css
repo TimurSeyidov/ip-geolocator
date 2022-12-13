@@ -1,0 +1,115 @@
+* {
+    font-family: Tahoma;
+}
+html,
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    align-items: center;
+    background-color: #f8f9fa;
+    display: flex;
+    font-size: 16px;
+    justify-content: center;
+    min-height: 100%;
+}
+
+.box {
+    background-color: #FFF;
+    box-sizing: border-box;
+    border-radius: .25rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 640px;
+    max-width: 90%;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+}
+
+input {
+    appearance: none;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-right: none;
+    border-bottom-left-radius: .25em;
+    border-top-left-radius: .25em;
+    color: #212529;
+    flex-grow: 1;
+    font-size: 16px;
+    margin: 0;
+    padding: .375rem .75rem;
+}
+input:focus {
+   outline: none;
+}
+table {
+    border-collapse: collapse;
+    border-color: #dee2e6;
+    border-style: solid;
+    border-width: 0;
+    margin-top: 20px;
+}
+table tr:nth-child(odd) {
+    color: #212529;
+}
+th, td{
+    border-bottom: 1px solid transparent;
+    padding: 10px;
+}
+th {
+    text-align: left;
+}
+table tr:nth-child(odd) th,
+table tr:nth-child(odd) td {
+    background: rgba(0, 0, 0, 0.05);
+    border-bottom-color: rgb(222, 226, 230);
+}
+button {
+    appearance: none;
+    background-color: #0d6efd;
+    border: 1px solid #0d6efd;
+    border-left: none;
+    border-bottom-right-radius: .25em;
+    border-top-right-radius: .25em;
+    color: #fff;
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: 16px;
+    margin: 0;
+    padding: .375rem .75rem;
+}
+button:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+    cursor: pointer;
+}
+
+.message {
+    color: #664d03;
+    background-color: #fff3cd;
+    border: 1px solid #ffecb5;
+    border-radius: .25rem;
+    margin-top: 10px;
+    padding: 1rem 1rem;
+    text-align: center;
+}
+
+.map {
+    background: #FFF;
+    box-sizing: border-box;
+    border: 1px solid rgb(222, 226, 230);
+    height: 300px;
+    margin-top: 10px;
+    padding: 2px;
+    width: 100%;
+}
