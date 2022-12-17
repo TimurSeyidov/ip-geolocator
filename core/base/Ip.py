@@ -16,3 +16,11 @@ class Ip:
     @property
     def value(self) -> str | None:
         return self.__value.__str__()
+
+    @property
+    def ip_v4(self) -> str | None:
+        return self.value if self.__value.version == 4 else None
+
+    @property
+    def ip_v6(self) -> str | None:
+        return self.value if self.__value.version == 6 else None

@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from core.interface import LocatorInterface, CacheInterface
 from core.component import HttpClient
 from core.base import Ip, Location
-from core.service import ChainLocator, IpGeoLocationLocator, IpInfoLocator
+from core.service import ChainLocator, IpGeoLocationLocator, IpInfoLocator, Ip2MeLocator
 
 
 class Application(LocatorInterface):
@@ -17,7 +17,9 @@ class Application(LocatorInterface):
         if not os.path.exists(file_env):
             return
         load_dotenv(file_env)
-        locators = list()
+        locators = [
+            Ip2MeLocator(HttpClient())
+        ]
         ipgeolocation_key = os.getenv('ipgeolocation_key')
         ipinfo_key = os.getenv('ipinfo_key')
         if ipgeolocation_key:

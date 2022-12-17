@@ -11,7 +11,10 @@ if __name__ == '__main__':
         sys.exit()
     app = BaseApplication(env_file='../.env')
     app.cache = FileCache(os.path.abspath(app.get_config('cache_path', '../cache')))
-    result = app.locate(Ip(ip_address))
-    print(result)
+    try:
+        result = app.locate(Ip(ip_address))
+        print(result)
+    except Exception as e:
+        print(e)
 
 
